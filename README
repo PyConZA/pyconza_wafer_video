@@ -1,0 +1,7 @@
+PyConZA scripts for adding video urls to wafer
+==============================================
+
+This repo stores scripts we've used to update wafer with the urls from video uploads.
+
+
+* pyv2wafer.py - used data from pyvideo json files to set the urls
