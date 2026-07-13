@@ -3,7 +3,7 @@
 import requests
 from urllib import parse as urlparse
 
-YOUTUBE_VIDEO_DESC = "Video (youtube.com)",
+YOUTUBE_VIDEO_DESC = "Video (youtube.com)"
 ARCHIVE_VIDEO_DESC = "Video (archive.org)"
 
 
