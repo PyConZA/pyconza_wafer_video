@@ -7,9 +7,7 @@ from wafer_video import WaferApi, video_on_talk, YOUTUBE_VIDEO_DESC, ARCHIVE_VID
 
 import json
 import re
-from urllib import parse as urlparse
 
-import requests
 import click
 
 YOUTUBE_TYPE = "host"  # wat
