@@ -11,13 +11,11 @@ from wafer_video import WaferApi, video_on_talk, YOUTUBE_VIDEO_DESC, ARCHIVE_VID
 
 import yaml
 import re
-from urllib import parse as urlparse
 
-import requests
 import click
 
 
-TalkUrlRE = re.compile('^Talk.*https://.*za.pycon.org/talks/(.*)/$')
+TalkUrlRE = re.compile('^Talk.*https://.*za.pycon.org/talks/([0-9]*)-.*/$')
 YoutubeRE = re.compile(r'\[([^]]*)\].mp4')
 
 
@@ -80,12 +78,11 @@ def pyv2wafer(pyvideo_file, wafer_url, wafer_auth):
         talk_id = talk['talk id']
         if talk_id is None:
             continue
-        #wafer_talk = wafer_api.get_talk(talk_id)
+        wafer_talk = wafer_api.get_talk(talk_id)
         for video in talk["videos"]:
             if video["desc"] not in (YOUTUBE_VIDEO_DESC, ARCHIVE_VIDEO_DESC):
                 continue
             if not video_on_talk(video, wafer_talk):
-                print("Adding %s to talk %s ..." % (video["type"], talk_id))
                 print(wafer_api.add_talk_url(talk_id, wafer_talk_url(video)))
 
 
