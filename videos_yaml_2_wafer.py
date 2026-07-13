@@ -84,11 +84,9 @@ def pyv2wafer(pyvideo_file, wafer_url, wafer_auth):
         for video in talk["videos"]:
             if video["desc"] not in (YOUTUBE_VIDEO_DESC, ARCHIVE_VIDEO_DESC):
                 continue
-            print("Adding %s to talk %s ..." % (video["desc"], talk_id))
-            print(video['url'])
-            #if not video_on_talk(video, wafer_talk):
-            #    print("Adding %s to talk %s ..." % (video["type"], talk_id))
-            #    print(wafer_api.add_talk_url(talk_id, wafer_talk_url(video)))
+            if not video_on_talk(video, wafer_talk):
+                print("Adding %s to talk %s ..." % (video["type"], talk_id))
+                print(wafer_api.add_talk_url(talk_id, wafer_talk_url(video)))
 
 
 if __name__ == "__main__":
